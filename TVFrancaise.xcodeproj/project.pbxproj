@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B381A251483048E00D1F886 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B381A241483048E00D1F886 /* Cocoa.framework */; };
+		2B381A271483048E00D1F886 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B381A261483048E00D1F886 /* MacRuby.framework */; };
+		2B381A301483048E00D1F886 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A2E1483048E00D1F886 /* InfoPlist.strings */; };
+		2B381A321483048E00D1F886 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B381A311483048E00D1F886 /* main.m */; };
+		2B381A371483048E00D1F886 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A351483048E00D1F886 /* MainMenu.xib */; };
+		2B381A3A1483048E00D1F886 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A391483048E00D1F886 /* rb_main.rb */; };
+		2B381A3C1483048E00D1F886 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A3B1483048E00D1F886 /* AppDelegate.rb */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B381A291483048E00D1F886 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B381A171483048D00D1F886 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B381A1F1483048E00D1F886;
+			remoteInfo = TVFrancaise;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B381A201483048E00D1F886 /* TVFrancaise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVFrancaise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B381A241483048E00D1F886 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2B381A261483048E00D1F886 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
+		2B381A2D1483048E00D1F886 /* TVFrancaise-Info.plist */ = {isa = PBXFileReference; path = "TVFrancaise-Info.plist"; sourceTree = "<group>"; };
+		2B381A2F1483048E00D1F886 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B381A311483048E00D1F886 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2B381A331483048E00D1F886 /* TVFrancaise-Prefix.pch */ = {isa = PBXFileReference; path = "TVFrancaise-Prefix.pch"; sourceTree = "<group>"; };
+		2B381A361483048E00D1F886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2B381A391483048E00D1F886 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
+		2B381A3B1483048E00D1F886 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B381A1D1483048E00D1F886 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B381A251483048E00D1F886 /* Cocoa.framework in Frameworks */,
+				2B381A271483048E00D1F886 /* MacRuby.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B381A151483048D00D1F886 = {
+			isa = PBXGroup;
+			children = (
+				2B381A2B1483048E00D1F886 /* TVFrancaise */,
+				2B381A231483048E00D1F886 /* Frameworks */,
+				2B381A211483048E00D1F886 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B381A211483048E00D1F886 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B381A201483048E00D1F886 /* TVFrancaise.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2B381A231483048E00D1F886 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B381A241483048E00D1F886 /* Cocoa.framework */,
+				2B381A261483048E00D1F886 /* MacRuby.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2B381A2B1483048E00D1F886 /* TVFrancaise */ = {
+			isa = PBXGroup;
+			children = (
+				2B381A3B1483048E00D1F886 /* AppDelegate.rb */,
+				2B381A341483048E00D1F886 /* Resources */,
+				2B381A381483048E00D1F886 /* Other Sources */,
+				2B381A2C1483048E00D1F886 /* Supporting Files */,
+			);
+			path = TVFrancaise;
+			sourceTree = "<group>";
+		};
+		2B381A2C1483048E00D1F886 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B381A2D1483048E00D1F886 /* TVFrancaise-Info.plist */,
+				2B381A2E1483048E00D1F886 /* InfoPlist.strings */,
+				2B381A311483048E00D1F886 /* main.m */,
+				2B381A331483048E00D1F886 /* TVFrancaise-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B381A341483048E00D1F886 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B381A351483048E00D1F886 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2B381A381483048E00D1F886 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2B381A391483048E00D1F886 /* rb_main.rb */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		2B381A281483048E00D1F886 /* Deployment */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "--compile --embed";
+			buildConfigurationList = 2B381A421483048E00D1F886 /* Build configuration list for PBXLegacyTarget "Deployment" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/macruby_deploy;
+			dependencies = (
+				2B381A2A1483048E00D1F886 /* PBXTargetDependency */,
+			);
+			name = Deployment;
+			passBuildSettingsInEnvironment = 1;
+			productName = Deployment;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		2B381A1F1483048E00D1F886 /* TVFrancaise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B381A3F1483048E00D1F886 /* Build configuration list for PBXNativeTarget "TVFrancaise" */;
+			buildPhases = (
+				2B381A1C1483048E00D1F886 /* Sources */,
+				2B381A1D1483048E00D1F886 /* Frameworks */,
+				2B381A1E1483048E00D1F886 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TVFrancaise;
+			productName = TVFrancaise;
+			productReference = 2B381A201483048E00D1F886 /* TVFrancaise.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B381A171483048D00D1F886 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 2B381A1A1483048D00D1F886 /* Build configuration list for PBXProject "TVFrancaise" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2B381A151483048D00D1F886;
+			productRefGroup = 2B381A211483048E00D1F886 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B381A1F1483048E00D1F886 /* TVFrancaise */,
+				2B381A281483048E00D1F886 /* Deployment */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B381A1E1483048E00D1F886 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B381A301483048E00D1F886 /* InfoPlist.strings in Resources */,
+				2B381A371483048E00D1F886 /* MainMenu.xib in Resources */,
+				2B381A3A1483048E00D1F886 /* rb_main.rb in Resources */,
+				2B381A3C1483048E00D1F886 /* AppDelegate.rb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B381A1C1483048E00D1F886 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B381A321483048E00D1F886 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B381A2A1483048E00D1F886 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B381A1F1483048E00D1F886 /* TVFrancaise */;
+			targetProxy = 2B381A291483048E00D1F886 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2B381A2E1483048E00D1F886 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B381A2F1483048E00D1F886 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2B381A351483048E00D1F886 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B381A361483048E00D1F886 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2B381A3D1483048E00D1F886 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2B381A3E1483048E00D1F886 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2B381A401483048E00D1F886 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TVFrancaise/TVFrancaise-Prefix.pch";
+				INFOPLIST_FILE = "TVFrancaise/TVFrancaise-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2B381A411483048E00D1F886 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TVFrancaise/TVFrancaise-Prefix.pch";
+				INFOPLIST_FILE = "TVFrancaise/TVFrancaise-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2B381A431483048E00D1F886 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2B381A441483048E00D1F886 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B381A1A1483048D00D1F886 /* Build configuration list for PBXProject "TVFrancaise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B381A3D1483048E00D1F886 /* Debug */,
+				2B381A3E1483048E00D1F886 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B381A3F1483048E00D1F886 /* Build configuration list for PBXNativeTarget "TVFrancaise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B381A401483048E00D1F886 /* Debug */,
+				2B381A411483048E00D1F886 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2B381A421483048E00D1F886 /* Build configuration list for PBXLegacyTarget "Deployment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B381A431483048E00D1F886 /* Debug */,
+				2B381A441483048E00D1F886 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2B381A171483048D00D1F886 /* Project object */;
+}
