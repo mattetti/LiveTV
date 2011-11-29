@@ -14,6 +14,8 @@
 		2B381A371483048E00D1F886 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A351483048E00D1F886 /* MainMenu.xib */; };
 		2B381A3A1483048E00D1F886 /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A391483048E00D1F886 /* rb_main.rb */; };
 		2B381A3C1483048E00D1F886 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A3B1483048E00D1F886 /* AppDelegate.rb */; };
+		2B381A5A14832C0700D1F886 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B381A5914832C0700D1F886 /* QTKit.framework */; };
+		2B381A5C1484555B00D1F886 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A5B1484555B00D1F886 /* icon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,13 +32,16 @@
 		2B381A201483048E00D1F886 /* TVFrancaise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVFrancaise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B381A241483048E00D1F886 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2B381A261483048E00D1F886 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
-		2B381A2D1483048E00D1F886 /* TVFrancaise-Info.plist */ = {isa = PBXFileReference; path = "TVFrancaise-Info.plist"; sourceTree = "<group>"; };
+		2B381A2D1483048E00D1F886 /* TVFrancaise-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TVFrancaise-Info.plist"; sourceTree = "<group>"; };
 		2B381A2F1483048E00D1F886 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B381A311483048E00D1F886 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2B381A331483048E00D1F886 /* TVFrancaise-Prefix.pch */ = {isa = PBXFileReference; path = "TVFrancaise-Prefix.pch"; sourceTree = "<group>"; };
+		2B381A331483048E00D1F886 /* TVFrancaise-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TVFrancaise-Prefix.pch"; sourceTree = "<group>"; };
 		2B381A361483048E00D1F886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2B381A391483048E00D1F886 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		2B381A3B1483048E00D1F886 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+		2B381A5914832C0700D1F886 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		2B381A5B1484555B00D1F886 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
+		2B381A611484572B00D1F886 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B381A5A14832C0700D1F886 /* QTKit.framework in Frameworks */,
 				2B381A251483048E00D1F886 /* Cocoa.framework in Frameworks */,
 				2B381A271483048E00D1F886 /* MacRuby.framework in Frameworks */,
 			);
@@ -58,6 +64,7 @@
 				2B381A2B1483048E00D1F886 /* TVFrancaise */,
 				2B381A231483048E00D1F886 /* Frameworks */,
 				2B381A211483048E00D1F886 /* Products */,
+				2B381A611484572B00D1F886 /* LICENSE.txt */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +79,7 @@
 		2B381A231483048E00D1F886 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B381A5914832C0700D1F886 /* QTKit.framework */,
 				2B381A241483048E00D1F886 /* Cocoa.framework */,
 				2B381A261483048E00D1F886 /* MacRuby.framework */,
 			);
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				2B381A351483048E00D1F886 /* MainMenu.xib */,
+				2B381A5B1484555B00D1F886 /* icon.icns */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -188,6 +197,7 @@
 				2B381A371483048E00D1F886 /* MainMenu.xib in Resources */,
 				2B381A3A1483048E00D1F886 /* rb_main.rb in Resources */,
 				2B381A3C1483048E00D1F886 /* AppDelegate.rb in Resources */,
+				2B381A5C1484555B00D1F886 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

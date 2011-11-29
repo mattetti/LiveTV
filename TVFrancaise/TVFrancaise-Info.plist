@@ -26,5 +26,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleIconFile</key>
+	<string>icon.icns</string>
 </dict>
 </plist>
