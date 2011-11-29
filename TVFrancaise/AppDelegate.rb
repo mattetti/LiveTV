@@ -46,7 +46,6 @@ class AppDelegate
         {"Euronews" => "http://media4.lsops.net/live/smil:euronews_en.smil/playlist.m3u8"},
         {"NASA TV" => "http://www.nasa.gov/multimedia/nasatv/NTV-Public-IPS.m3u8"},
         {"Redbull.tv" => "http://live.iphone.redbull.de.edgesuite.net/iphone.m3u8"},
-        {"BBC News" => "http://akamedia2.lsops.net/live/smil:bbcnews_en.smil/playlist.m3u8"},
         {"Eurosport UK" => "http://live.iphone.eurosport.com/uk1/stc_0_0.m3u8"},
         {"Bloomberg" => "http://media4.lsops.net/live/smil:bloomber_en.smil/playlist.m3u8"},
         {"Fashion TV" => "http://217.146.95.164:8081/ch27yiphone.m3u8"}
