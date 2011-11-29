@@ -77,23 +77,19 @@ class AppDelegate
     end
   end
   
-  def loading?(movie)
-    puts "loading..." if movie.attributeForKey(QTMovieLoadStateAttribute) == QTMovieLoadStateLoading
-  end
-  
   def stream_channel(idx)
     unless @last_idx == idx
       @spinner.startAnimation(nil)
       value = @data.first[:child][idx].values.first
       url = NSURL.URLWithString(value)
-      puts "Changing channel"
+      # puts "Changing channel"
       error = Pointer.new("@")
       movie = QTMovie.alloc.initWithAttributes({QTMovieOpenForPlaybackAttribute => true, QTMovieURLAttribute => url}, error)
       @loading_check_thread.exit if @loading_check_thread
       @loading_check_thread = Thread.new do
         @player.hidden = true unless @player.movie
         while(movie.attributeForKey(QTMovieLoadStateAttribute) == QTMovieLoadStateLoading) do
-          puts "loading..."
+          # puts "loading..."
           sleep(1) 
         end
         movie.autoplay
