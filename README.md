@@ -46,7 +46,7 @@ about the following Cocoa classes:
 * Misc hacks
 * ad supported version so I can become super rich and move back to France (j/k)
 
-== Thanks
+## Thanks
 
 Thanks to Patrick Crowley for the current icon, hopefully, we'll come up
 with something better ;)
