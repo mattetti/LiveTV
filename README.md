@@ -1,4 +1,4 @@
-= TV Française
+# TV Française
 
 Simple OS X application allowing you to watch most of the free French TV
 channels live. (works overseas)
@@ -6,7 +6,7 @@ channels live. (works overseas)
 This product is buggy, mainly for educational purposes and certainly not
 maintained. Use it at your own risks.
 
-== Usage
+## Usage
 
 The easy way: download https://github.com/downloads/mattetti/TVFrancaise/TVFrancaise.zip unzip and double click.
 The "harder way": install Xcode 4.x, MacRuby, clone this repo, open and
@@ -17,7 +17,7 @@ You first need to build the TVFrancaise scheme before running the
 Deployment scheme.
 
 
-== Details
+## Details
 
 The application is a native OS X Cocoa application written in MacRuby
 http://macruby.org You can learn more about MacRuby via my book: http://amzn.to/tVx4ng
@@ -31,7 +31,7 @@ about the following Cocoa classes:
 * QTMovieView
 * NSProgressIndicator
 
-== TODO list
+## TODO list
 
 * Full screen mode (in the meantime, maximize the window and close the
   outline view).
