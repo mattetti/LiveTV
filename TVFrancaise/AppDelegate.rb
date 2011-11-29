@@ -91,14 +91,15 @@ class AppDelegate
     return true
   end
 
-  
+=begin  
   def outlineViewSelectionDidChange(notification)
     row = outline.selectedRow
     if row > -1
       stream_channel(row-1)
     end
   end
-  
+=end
+ 
   def stream_channel(item)
     unless @last_item == item
       @spinner.startAnimation(nil)
