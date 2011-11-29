@@ -1,7 +1,7 @@
-# TV Française
+# LiveTV
 
-Simple OS X application allowing you to watch most of the free French TV
-channels live. (works overseas)
+Simple OS X application allowing you to watch some live free TV
+channels (French, English, Italian).
 
 This product is buggy, mainly for educational purposes and certainly not
 maintained. Use it at your own risks.
@@ -10,10 +10,10 @@ maintained. Use it at your own risks.
 
 The easy way: download https://github.com/downloads/mattetti/TVFrancaise/TVFrancaise.zip unzip and double click.
 The "harder way": install Xcode 4.x, MacRuby, clone this repo, open and
-compile. There are 2 schemes: TVFrancaise and Deployment. TVFrancaise
+compile. There are 2 schemes: LiveTV and Deployment. LiveTV
 compiles the code in JIT mode and runs it. 
 The Deployment scheme compiles AOT the app and insert the MacRuby framework in the app to make it truly standalone.
-You first need to build the TVFrancaise scheme before running the
+You first need to build the LiveTV scheme before running the
 Deployment scheme.
 
 
