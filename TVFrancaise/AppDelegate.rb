@@ -102,13 +102,9 @@ class AppDelegate
   def stream_channel(item)
     unless @last_item == item
       @spinner.startAnimation(nil)
-      channel = nil
-      @data.each do |cat| 
+      channel = @data.each do |cat| 
         match = cat[:child].detect{|(name, url)| name.keys.first == item}
-        if match
-          channel = match
-          break
-        end
+        break match if match
       end
       return unless channel && channel.respond_to?(:values)
       value = channel.values.first
