@@ -36,6 +36,7 @@ about the following Cocoa classes:
 * Full screen mode (in the meantime, maximize the window and close the
   outline view).
 * Disable screensaver
+* Apple remote control support
 * Airplay support
 * EPG support (to know what's being broadcast, what's coming up next..)
 * Recording (not sure QTMovie allows that. Scheduled recordings might also be nice)
