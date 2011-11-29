@@ -30,14 +30,17 @@ class AppDelegate
       {"NRJ12"    => "http://nrj-apple-live.adaptive.level3.net/apple/nrj/nrj/nrj12.m3u8"},
       {"Direct Star" => "http://cupertino-streaming-1.hexaglobe.com/rtpdirectstarlive/smil:directstar-ipad.smil/playlist.m3u8"},
       {"France 24" => "http://stream7.france24.yacast.net/iphone/france24/fr/iPad.f24_fr.m3u8"},
+      {"Euronews (FR)" => "http://media4.lsops.net/live/smil:euronews_fr.smil/playlist.m3u8"},
       {"BFM TV"   => "http://http5.iphone.yacast.net/iphone/bfmtv/bfmtv_ipad.m3u8"},
       {"BFM Business" => "http://stream7.bfmbiz.yacast.net/iphone/bfmbiz/bfmbiz_live01.m3u8"},
       {"BFM Business" => "http://stream7.bfmbiz.yacast.net/iphone/bfmbiz/bfmbiz_live01.m3u8"},
       {"NRJ Pop Rock" => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-4/appleman.m3u8"},
       {"NRJ Pure"  => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-3/appleman.m3u8"},
       {"NRJ Dance" => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-2/appleman.m3u8"},
-      {"NRJ Urban" => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-1/nrjurban.m3u8"}
-      ] }]
+      {"NRJ Urban" => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-1/nrjurban.m3u8"},
+      {"Redbull.tv (EN)" => "http://live.iphone.redbull.de.edgesuite.net/iphone.m3u8"}
+      ]
+    }]
     outline.expandItem(@data[0])
     stream_channel(13)
   end
