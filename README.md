@@ -8,10 +8,19 @@ maintained. Use it at your own risks.
 
 ## Usage
 
-The easy way: download https://github.com/downloads/mattetti/TVFrancaise/TVFrancaise.zip unzip and double click.
-The "harder way": install Xcode 4.x, MacRuby, clone this repo, open and
-compile. There are 2 schemes: LiveTV and Deployment. LiveTV
-compiles the code in JIT mode and runs it. 
+The easy way: 
+* download the app: https://github.com/downloads/mattetti/LiveTV/LiveTV.zip
+* unzip 
+* double click.
+
+The "harder way": 
+* install Xcode 4.x
+* install MacRuby http://macruby.org
+* clone this repo
+* compile the app
+
+Compilation info: There are 2 schemes: LiveTV and Deployment.
+LiveTV compiles the code in JIT mode and runs it. 
 The Deployment scheme compiles AOT the app and insert the MacRuby framework in the app to make it truly standalone.
 You first need to build the LiveTV scheme before running the
 Deployment scheme.
