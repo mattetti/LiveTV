@@ -29,13 +29,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B381A201483048E00D1F886 /* TVFrancaise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVFrancaise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B381A201483048E00D1F886 /* LiveTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B381A241483048E00D1F886 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2B381A261483048E00D1F886 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
-		2B381A2D1483048E00D1F886 /* TVFrancaise-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TVFrancaise-Info.plist"; sourceTree = "<group>"; };
+		2B381A2D1483048E00D1F886 /* LiveTV-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LiveTV-Info.plist"; sourceTree = "<group>"; };
 		2B381A2F1483048E00D1F886 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B381A311483048E00D1F886 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2B381A331483048E00D1F886 /* TVFrancaise-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TVFrancaise-Prefix.pch"; sourceTree = "<group>"; };
+		2B381A331483048E00D1F886 /* LiveTV-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiveTV-Prefix.pch"; sourceTree = "<group>"; };
 		2B381A361483048E00D1F886 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2B381A391483048E00D1F886 /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		2B381A3B1483048E00D1F886 /* AppDelegate.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		2B381A211483048E00D1F886 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B381A201483048E00D1F886 /* TVFrancaise.app */,
+				2B381A201483048E00D1F886 /* LiveTV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,10 +100,10 @@
 		2B381A2C1483048E00D1F886 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2B381A2D1483048E00D1F886 /* TVFrancaise-Info.plist */,
+				2B381A2D1483048E00D1F886 /* LiveTV-Info.plist */,
 				2B381A2E1483048E00D1F886 /* InfoPlist.strings */,
 				2B381A311483048E00D1F886 /* main.m */,
-				2B381A331483048E00D1F886 /* TVFrancaise-Prefix.pch */,
+				2B381A331483048E00D1F886 /* LiveTV-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -130,11 +130,12 @@
 /* Begin PBXLegacyTarget section */
 		2B381A281483048E00D1F886 /* Deployment */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "--compile --embed";
+			buildArgumentsString = "--compile --no-stdlib --embed";
 			buildConfigurationList = 2B381A421483048E00D1F886 /* Build configuration list for PBXLegacyTarget "Deployment" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/local/bin/macruby_deploy;
+			buildWorkingDirectory = "";
 			dependencies = (
 				2B381A2A1483048E00D1F886 /* PBXTargetDependency */,
 			);
@@ -145,9 +146,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		2B381A1F1483048E00D1F886 /* TVFrancaise */ = {
+		2B381A1F1483048E00D1F886 /* LiveTV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B381A3F1483048E00D1F886 /* Build configuration list for PBXNativeTarget "TVFrancaise" */;
+			buildConfigurationList = 2B381A3F1483048E00D1F886 /* Build configuration list for PBXNativeTarget "LiveTV" */;
 			buildPhases = (
 				2B381A1C1483048E00D1F886 /* Sources */,
 				2B381A1D1483048E00D1F886 /* Frameworks */,
@@ -157,9 +158,9 @@
 			);
 			dependencies = (
 			);
-			name = TVFrancaise;
+			name = LiveTV;
 			productName = TVFrancaise;
-			productReference = 2B381A201483048E00D1F886 /* TVFrancaise.app */;
+			productReference = 2B381A201483048E00D1F886 /* LiveTV.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +171,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 2B381A1A1483048D00D1F886 /* Build configuration list for PBXProject "TVFrancaise" */;
+			buildConfigurationList = 2B381A1A1483048D00D1F886 /* Build configuration list for PBXProject "LiveTV" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -182,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2B381A1F1483048E00D1F886 /* TVFrancaise */,
+				2B381A1F1483048E00D1F886 /* LiveTV */,
 				2B381A281483048E00D1F886 /* Deployment */,
 			);
 		};
@@ -217,7 +218,7 @@
 /* Begin PBXTargetDependency section */
 		2B381A2A1483048E00D1F886 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2B381A1F1483048E00D1F886 /* TVFrancaise */;
+			target = 2B381A1F1483048E00D1F886 /* LiveTV */;
 			targetProxy = 2B381A291483048E00D1F886 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -262,9 +263,9 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -282,8 +283,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
@@ -297,9 +298,11 @@
 				);
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TVFrancaise/TVFrancaise-Prefix.pch";
-				INFOPLIST_FILE = "TVFrancaise/TVFrancaise-Info.plist";
+				GCC_PREFIX_HEADER = "TVFrancaise/LiveTV-Prefix.pch";
+				INFOPLIST_FILE = "TVFrancaise/LiveTV-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -314,9 +317,11 @@
 				);
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TVFrancaise/TVFrancaise-Prefix.pch";
-				INFOPLIST_FILE = "TVFrancaise/TVFrancaise-Info.plist";
+				GCC_PREFIX_HEADER = "TVFrancaise/LiveTV-Prefix.pch";
+				INFOPLIST_FILE = "TVFrancaise/LiveTV-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -336,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2B381A1A1483048D00D1F886 /* Build configuration list for PBXProject "TVFrancaise" */ = {
+		2B381A1A1483048D00D1F886 /* Build configuration list for PBXProject "LiveTV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B381A3D1483048E00D1F886 /* Debug */,
@@ -345,13 +350,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B381A3F1483048E00D1F886 /* Build configuration list for PBXNativeTarget "TVFrancaise" */ = {
+		2B381A3F1483048E00D1F886 /* Build configuration list for PBXNativeTarget "LiveTV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B381A401483048E00D1F886 /* Debug */,
 				2B381A411483048E00D1F886 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B381A421483048E00D1F886 /* Build configuration list for PBXLegacyTarget "Deployment" */ = {
 			isa = XCConfigurationList;
@@ -360,6 +366,7 @@
 				2B381A441483048E00D1F886 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
