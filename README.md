@@ -9,11 +9,13 @@ maintained. Use it at your own risks.
 ## Usage
 
 The easy way: 
+
 * download the app: https://github.com/downloads/mattetti/LiveTV/LiveTV.zip
 * unzip 
 * double click.
 
 The "harder way": 
+
 * install Xcode 4.x
 * install MacRuby http://macruby.org
 * clone this repo
