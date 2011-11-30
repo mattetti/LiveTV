@@ -48,16 +48,22 @@ class AppDelegate
         {"Redbull.tv" => "http://live.iphone.redbull.de.edgesuite.net/iphone.m3u8"},
         {"Eurosport UK" => "http://live.iphone.eurosport.com/uk1/stc_0_0.m3u8"},
         {"Bloomberg" => "http://media4.lsops.net/live/smil:bloomber_en.smil/playlist.m3u8"},
-        {"Fashion TV" => "http://217.146.95.164:8081/ch27yiphone.m3u8"}
-      ]
-      },
+        {"Fashion TV" => "http://217.146.95.164:8081/ch27yiphone.m3u8"},
+        {"AlJazeera English" => "http://aj.lsops.net/live/smil:aljazeer_en.smil/playlist.m3u8"}
+      ]},
       {:group => 'Canali Italiani', 
       :child => [
         {"DEEJAY TV" => "http://flv.kataweb.it/hls/deejaytv/deejaytv.m3u8"},
         {"Rai News" => "http://iphone.sg.softspb.com/ip/15__350.m3u8"},
         {"Teleboario " => "http://91.121.222.160:1935/teleboario/teleboario.sdp/playlist.m3u8"},
         {"Sky TG24" => "http://iphone.live.sky.it/jen2011/jen2011_Layer1.m3u8"}
-        ]}
+      ]},
+      {:group => 'Arabic Channels',
+        :child => [
+        {"AlJazeera Mubasher" => "http://aj.lsops.net/live/smil:aljamuba_ar.smil/playlist.m3u8"},
+        {"AlJazeera Arabic" => "http://aj.lsops.net/live/smil:aljazeer_ar.smil/playlist.m3u8"},
+        {"AlJazeera Sport" => "http://demoperform-apple-live.adaptive.level3.net/apple/perform/aljaz/ch01/index_iphone.m3u8"}
+      ]}
     ]
     outline.expandItem(@data[0])
     stream_channel("NRJ Pure")
