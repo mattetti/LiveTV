@@ -10,7 +10,7 @@ maintained. Use it at your own risks.
 
 The easy way: 
 
-* download the app: https://github.com/downloads/mattetti/LiveTV/LiveTV.zip
+* download the latest version of app from: https://github.com/mattetti/LiveTV/downloads
 * unzip 
 * double click.
 
