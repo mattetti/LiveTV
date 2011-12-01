@@ -1342,7 +1342,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1371,6 +1371,7 @@
 															<int key="NSvFlags">256</int>
 															<string key="NSFrameSize">{133, 431}</string>
 															<reference key="NSSuperview" ref="487449192"/>
+															<reference key="NSWindow"/>
 															<reference key="NSNextKeyView" ref="272436597"/>
 															<string key="NSReuseIdentifierKey">_NS:282</string>
 															<bool key="NSEnabled">YES</bool>
@@ -1481,6 +1482,7 @@
 													</object>
 													<string key="NSFrame">{{1, 1}, {133, 431}}</string>
 													<reference key="NSSuperview" ref="672212451"/>
+													<reference key="NSWindow"/>
 													<reference key="NSNextKeyView" ref="761096091"/>
 													<string key="NSReuseIdentifierKey">_NS:280</string>
 													<reference key="NSDocView" ref="761096091"/>
@@ -1492,6 +1494,7 @@
 													<int key="NSvFlags">-2147483392</int>
 													<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 													<reference key="NSSuperview" ref="672212451"/>
+													<reference key="NSWindow"/>
 													<reference key="NSNextKeyView" ref="460093998"/>
 													<string key="NSReuseIdentifierKey">_NS:284</string>
 													<reference key="NSTarget" ref="672212451"/>
@@ -1503,6 +1506,7 @@
 													<int key="NSvFlags">-2147483392</int>
 													<string key="NSFrame">{{1, 354.34593451023102}, {138.61792278289795, 15}}</string>
 													<reference key="NSSuperview" ref="672212451"/>
+													<reference key="NSWindow"/>
 													<reference key="NSNextKeyView" ref="812534346"/>
 													<string key="NSReuseIdentifierKey">_NS:317</string>
 													<int key="NSsFlags">1</int>
@@ -1513,6 +1517,7 @@
 											</object>
 											<string key="NSFrame">{{0, 2}, {135, 433}}</string>
 											<reference key="NSSuperview" ref="1012908832"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="487449192"/>
 											<string key="NSReuseIdentifierKey">_NS:195</string>
 											<int key="NSsFlags">133682</int>
@@ -1527,6 +1532,7 @@
 											<object class="NSPSMatrix" key="NSDrawMatrix"/>
 											<string key="NSFrame">{{94, 403}, {16, 16}}</string>
 											<reference key="NSSuperview" ref="1012908832"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="419499962"/>
 											<string key="NSReuseIdentifierKey">_NS:3930</string>
 											<int key="NSpiFlags">28938</int>
@@ -1535,6 +1541,7 @@
 									</object>
 									<string key="NSFrameSize">{135, 435}</string>
 									<reference key="NSSuperview" ref="489816566"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="672212451"/>
 									<string key="NSReuseIdentifierKey">_NS:1112</string>
 									<string key="NSClassName">NSView</string>
@@ -1559,6 +1566,7 @@
 											</object>
 											<string key="NSFrameSize">{587, 441}</string>
 											<reference key="NSSuperview" ref="419499962"/>
+											<reference key="NSWindow"/>
 											<string key="NSReuseIdentifierKey">_NS:46</string>
 											<reference key="kCoderFillColor" ref="415805617"/>
 											<boolean value="NO" key="kCoderControllerVisible"/>
@@ -1569,6 +1577,7 @@
 									</object>
 									<string key="NSFrame">{{145, 0}, {587, 435}}</string>
 									<reference key="NSSuperview" ref="489816566"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="295373162"/>
 									<string key="NSReuseIdentifierKey">_NS:1114</string>
 									<string key="NSClassName">NSView</string>
@@ -1576,6 +1585,7 @@
 							</object>
 							<string key="NSFrameSize">{732, 435}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1012908832"/>
 							<string key="NSReuseIdentifierKey">_NS:1110</string>
 							<bool key="NSIsVertical">YES</bool>
@@ -1583,6 +1593,8 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{732, 435}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="489816566"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -2310,6 +2322,14 @@
 						<reference key="destination" ref="812534346"/>
 					</object>
 					<int key="connectionID">567</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">split_view</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="489816566"/>
+					</object>
+					<int key="connectionID">571</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -3810,7 +3830,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">567</int>
+			<int key="maxID">571</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3836,10 +3856,12 @@
 							<string>outline</string>
 							<string>player</string>
 							<string>spinner</string>
+							<string>split_view</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3853,6 +3875,7 @@
 							<string>outline</string>
 							<string>player</string>
 							<string>spinner</string>
+							<string>split_view</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -3867,6 +3890,10 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">spinner</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">split_view</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">

@@ -44,9 +44,9 @@ about the following Cocoa classes:
 
 ## TODO list
 
-* Full screen mode (in the meantime, maximize the window and close the
-  outline view).
-* Disable screensaver
+* Full screen mode (currently Lion only)
+* Look into the GC error with unregistered thread. (thread started manually when the channel is changed)
+* Move the channel buffering indicator to the watched channel or bottom right of the screen.
 * Apple remote control support
 * Airplay support
 * EPG support (to know what's being broadcast, what's coming up next..)
@@ -62,5 +62,7 @@ about the following Cocoa classes:
 
 ## Thanks
 
-Thanks to Patrick Crowley for the current icon, hopefully, we'll come up
+Thanks to 
+* Patrick Crowley for the current icon, hopefully, we'll come up
 with something better ;)
+* Amr Numan Tamimi amrnt for contributing new channels.

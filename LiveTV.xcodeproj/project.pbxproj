@@ -42,6 +42,7 @@
 		2B381A5914832C0700D1F886 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 		2B381A5B1484555B00D1F886 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
 		2B381A611484572B00D1F886 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		2BB8391514872BEE00A668FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 				2B381A231483048E00D1F886 /* Frameworks */,
 				2B381A211483048E00D1F886 /* Products */,
 				2B381A611484572B00D1F886 /* LICENSE.txt */,
+				2BB8391514872BEE00A668FB /* README.md */,
 			);
 			sourceTree = "<group>";
 		};

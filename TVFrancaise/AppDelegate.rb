@@ -11,8 +11,21 @@ class AppDelegate
   attr_accessor :outline
   attr_accessor :player
   attr_accessor :spinner
+  attr_accessor :split_view
   
   def applicationDidFinishLaunching(a_notification)
+    # full screen mode for Lion only
+    if Object.const_defined?(:NSWindowCollectionBehaviorFullScreenPrimary)
+      window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary   
+      NSNotificationCenter.defaultCenter.addObserver( self, 
+                                                   selector: 'will_enter_fullscreen:',
+                                                   name: NSWindowWillEnterFullScreenNotification,
+                                                   object: window)
+      NSNotificationCenter.defaultCenter.addObserver( self, 
+                                                     selector: 'will_exit_fullscreen:',
+                                                     name: NSWindowWillExitFullScreenNotification,
+                                                     object: window)
+    end
   end
   
   def awakeFromNib
@@ -89,9 +102,6 @@ class AppDelegate
   def outlineView(outlineView, objectValueForTableColumn:tableColumn, byItem:item)
     item.kind_of?(Hash) ? item[:group] : item
   end
-  
-  def windowWillClose(sender); exit(1); end
-  
 
   def outlineView(outlineView, shouldSelectItem:item)
     return false if item.kind_of?(Hash)
@@ -99,15 +109,6 @@ class AppDelegate
     return true
   end
 
-=begin  
-  def outlineViewSelectionDidChange(notification)
-    row = outline.selectedRow
-    if row > -1
-      stream_channel(row-1)
-    end
-  end
-=end
- 
   def stream_channel(item)
     unless @last_item == item
       @spinner.startAnimation(nil)
@@ -126,7 +127,7 @@ class AppDelegate
         @player.hidden = true unless @player.movie
         while(movie.attributeForKey(QTMovieLoadStateAttribute) == QTMovieLoadStateLoading) do
           # puts "loading..."
-          sleep(1) 
+          sleep(0.5) 
         end
         movie.autoplay
         @player.hidden = false
@@ -136,6 +137,22 @@ class AppDelegate
       @last_item = item
     end
   end
+    
+  def will_enter_fullscreen(notification)
+    # about to enter Lion's FS mode, collapsing the channel list panel
+    @channel_panel_old_size = [split_view.subviews[0].frame[0].x, 
+                               split_view.subviews[0].frame[0].y, 
+                               430, #split_view.subviews[0].frame[1].width
+                               split_view.subviews[0].frame[1].height]
+    split_view.subviews[0].frame = [0, 0, 0, split_view.subviews[0].frame[1].height]    
+  end
+    
+  def will_exit_fullscreen(notification)
+    # resizing the channel panel
+    split_view.subviews[0].frame = @channel_panel_old_size if @channel_panel_old_size
+  end
+    
+  def windowWillClose(sender); exit(1); end
   
 end
 
