@@ -118,7 +118,7 @@ class AppDelegate
       url = NSURL.URLWithString(value)
       # puts "Changing channel"
       error = Pointer.new("@")
-      movie = QTMovie.alloc.initWithAttributes({QTMovieOpenForPlaybackAttribute => true, QTMovieURLAttribute => url}, error)
+      movie = QTMovie.movieWithAttributes({QTMovieOpenForPlaybackAttribute => true, QTMovieURLAttribute => url}, error)
       @loading_check_thread.exit if @loading_check_thread
       @loading_check_thread = Thread.new do
         @player.hidden = true unless @player.movie
