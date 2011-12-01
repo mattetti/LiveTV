@@ -26,8 +26,9 @@ class AppDelegate
         {"France 4" =>  "http://94.247.234.2/streaming/francetv_ft4/ipad.m3u8"},
         {"France 5" => "http://94.247.234.4/streaming/francetv_ft5/ipad.m3u8"},
         {"France Ô" => "http://94.247.234.4/streaming/francetv_fto/ipad.m3u8"},
-        {"M6"       => "http://m6-hls-live.adaptive.level3.net/apple/m6replay_iphone/m6live/m6live_ipad.m3u8"},
-        {"W9"       => "http://m6-hls-live.adaptive.level3.net/apple/m6replay_iphone/m6live/w9live.m3u8"},
+       # M6 and W9 went dark, the iPad app now auth the user via a token, same as TF1
+       #{"M6"       => "http://m6-hls-live.adaptive.level3.net/apple/m6replay_iphone/m6live/m6live_ipad.m3u8"},
+       #{"W9"       => "http://m6-hls-live.adaptive.level3.net/apple/m6replay_iphone/m6live/w9live.m3u8"},
         {"IDF1"     => "http://stream7.idf1.yacast.net/iphone/idf1/live01/idf1_live01hd.m3u8"},
         {"NRJ12"    => "http://nrj-apple-live.adaptive.level3.net/apple/nrj/nrj/nrj12.m3u8"},
         {"Direct Star" => "http://cupertino-streaming-1.hexaglobe.com/rtpdirectstarlive/smil:directstar-ipad.smil/playlist.m3u8"},
@@ -66,6 +67,7 @@ class AppDelegate
       ]}
     ]
     outline.expandItem(@data[0])
+    # Starting channel
     stream_channel("NRJ Pure")
   end
   
