@@ -61,7 +61,7 @@
 		2B381A151483048D00D1F886 = {
 			isa = PBXGroup;
 			children = (
-				2B381A2B1483048E00D1F886 /* TVFrancaise */,
+				2B381A2B1483048E00D1F886 /* LiveTV */,
 				2B381A231483048E00D1F886 /* Frameworks */,
 				2B381A211483048E00D1F886 /* Products */,
 				2B381A611484572B00D1F886 /* LICENSE.txt */,
@@ -86,7 +86,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2B381A2B1483048E00D1F886 /* TVFrancaise */ = {
+		2B381A2B1483048E00D1F886 /* LiveTV */ = {
 			isa = PBXGroup;
 			children = (
 				2B381A3B1483048E00D1F886 /* AppDelegate.rb */,
@@ -94,6 +94,7 @@
 				2B381A381483048E00D1F886 /* Other Sources */,
 				2B381A2C1483048E00D1F886 /* Supporting Files */,
 			);
+			name = LiveTV;
 			path = TVFrancaise;
 			sourceTree = "<group>";
 		};
