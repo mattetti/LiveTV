@@ -31,54 +31,8 @@ class AppDelegate
   def awakeFromNib
     @spinner.displayedWhenStopped = false
     @player.hidden = true
-    @data = [
-     {:group => 'Chaines Françaises',
-      :child => [
-        {"France 2" => "http://94.247.234.2/streaming/francetv_ft2/ipad.m3u8"},
-        {"France 3" => "http://94.247.234.2/streaming/francetv_ft3/ipad.m3u8"},
-        {"France 4" =>  "http://94.247.234.2/streaming/francetv_ft4/ipad.m3u8"},
-        {"France 5" => "http://94.247.234.4/streaming/francetv_ft5/ipad.m3u8"},
-        {"France Ô" => "http://94.247.234.4/streaming/francetv_fto/ipad.m3u8"},
-       # M6 and W9 went dark, the iPad app now auth the user via a token, same as TF1
-       #{"M6"       => "http://m6-hls-live.adaptive.level3.net/apple/m6replay_iphone/m6live/m6live_ipad.m3u8"},
-       #{"W9"       => "http://m6-hls-live.adaptive.level3.net/apple/m6replay_iphone/m6live/w9live.m3u8"},
-        {"IDF1"     => "http://stream7.idf1.yacast.net/iphone/idf1/live01/idf1_live01hd.m3u8"},
-        {"NRJ12"    => "http://nrj-apple-live.adaptive.level3.net/apple/nrj/nrj/nrj12.m3u8"},
-        {"Direct Star" => "http://cupertino-streaming-1.hexaglobe.com/rtpdirectstarlive/smil:directstar-ipad.smil/playlist.m3u8"},
-        {"France 24" => "http://stream7.france24.yacast.net/iphone/france24/fr/iPad.f24_fr.m3u8"},
-        {"Euronews (FR)" => "http://media4.lsops.net/live/smil:euronews_fr.smil/playlist.m3u8"},
-        {"BFM TV"   => "http://http5.iphone.yacast.net/iphone/bfmtv/bfmtv_ipad.m3u8"},
-        {"BFM Business" => "http://stream7.bfmbiz.yacast.net/iphone/bfmbiz/bfmbiz_live01.m3u8"},
-        {"NRJ Pop Rock" => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-4/appleman.m3u8"},
-        {"NRJ Pure"  => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-3/appleman.m3u8"},
-        {"NRJ Dance" => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-2/appleman.m3u8"},
-        {"NRJ Urban" => "http://nrjlive-apple-live.adaptive.level3.net/apple/nrj/nrjlive-1/nrjurban.m3u8"}
-      ]},
-      {:group => 'English Channels',
-       :child => [
-        {"BBC News" => "http://akamedia2.lsops.net/live/smil:bbcnews_en.smil/playlist.m3u8"},
-        {"Euronews" => "http://media4.lsops.net/live/smil:euronews_en.smil/playlist.m3u8"},
-        {"NASA TV" => "http://www.nasa.gov/multimedia/nasatv/NTV-Public-IPS.m3u8"},
-        {"Redbull.tv" => "http://live.iphone.redbull.de.edgesuite.net/iphone.m3u8"},
-        {"Eurosport UK" => "http://live.iphone.eurosport.com/uk1/stc_0_0.m3u8"},
-        {"Bloomberg" => "http://media4.lsops.net/live/smil:bloomber_en.smil/playlist.m3u8"},
-        {"Fashion TV" => "http://217.146.95.164:8081/ch27yiphone.m3u8"},
-        {"AlJazeera English" => "http://aj.lsops.net/live/smil:aljazeer_en.smil/playlist.m3u8"}
-      ]},
-      {:group => 'Canali Italiani', 
-      :child => [
-        {"DEEJAY TV" => "http://flv.kataweb.it/hls/deejaytv/deejaytv.m3u8"},
-        {"Rai News" => "http://iphone.sg.softspb.com/ip/15__350.m3u8"},
-        {"Teleboario " => "http://91.121.222.160:1935/teleboario/teleboario.sdp/playlist.m3u8"},
-        {"Sky TG24" => "http://iphone.live.sky.it/jen2011/jen2011_Layer1.m3u8"}
-      ]},
-      {:group => 'Arabic Channels',
-        :child => [
-        {"AlJazeera Mubasher" => "http://aj.lsops.net/live/smil:aljamuba_ar.smil/playlist.m3u8"},
-        {"AlJazeera Arabic" => "http://aj.lsops.net/live/smil:aljazeer_ar.smil/playlist.m3u8"},
-        {"AlJazeera Sport" => "http://demoperform-apple-live.adaptive.level3.net/apple/perform/aljaz/ch01/index_iphone.m3u8"}
-      ]}
-    ]
+				channel_plist_path = NSBundle.mainBundle.pathForResource "channelList", ofType:"plist"
+				@data = NSArray.arrayWithContentsOfFile channel_plist_path
     outline.expandItem(@data[0])
     # Starting channel
     stream_channel("NRJ Pure")

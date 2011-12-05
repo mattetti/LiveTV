@@ -16,6 +16,7 @@
 		2B381A3C1483048E00D1F886 /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A3B1483048E00D1F886 /* AppDelegate.rb */; };
 		2B381A5A14832C0700D1F886 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B381A5914832C0700D1F886 /* QTKit.framework */; };
 		2B381A5C1484555B00D1F886 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2B381A5B1484555B00D1F886 /* icon.icns */; };
+		4FB863EF148D5501006CED55 /* channelList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FB863EE148D5501006CED55 /* channelList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		2B381A5B1484555B00D1F886 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
 		2B381A611484572B00D1F886 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		2BB8391514872BEE00A668FB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4FB863EE148D5501006CED55 /* channelList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = channelList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		2B381A341483048E00D1F886 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4FB863EE148D5501006CED55 /* channelList.plist */,
 				2B381A351483048E00D1F886 /* MainMenu.xib */,
 				2B381A5B1484555B00D1F886 /* icon.icns */,
 			);
@@ -202,6 +205,7 @@
 				2B381A3A1483048E00D1F886 /* rb_main.rb in Resources */,
 				2B381A3C1483048E00D1F886 /* AppDelegate.rb in Resources */,
 				2B381A5C1484555B00D1F886 /* icon.icns in Resources */,
+				4FB863EF148D5501006CED55 /* channelList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
