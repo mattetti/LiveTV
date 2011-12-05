@@ -12,20 +12,31 @@ class AppDelegate
   attr_accessor :player
   attr_accessor :spinner
   attr_accessor :split_view
+		attr_accessor :leo_fullscreen_button, :is_fullscreen
+
   
   def applicationDidFinishLaunching(a_notification)
-    # full screen mode for Lion only
-    if Object.const_defined?(:NSWindowCollectionBehaviorFullScreenPrimary)
-      window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary   
-      NSNotificationCenter.defaultCenter.addObserver( self, 
+				# find actual Mac OSX Version // we should find a better way
+				sv = NSDictionary.dictionaryWithContentsOfFile "/System/Library/CoreServices/SystemVersion.plist"
+				osx_version_string = sv["ProductVersion"]
+				if osx_version_string.to_f >= "10.6.0".to_f
+						# full screen mode for Lion only
+						if Object.const_defined?(:NSWindowCollectionBehaviorFullScreenPrimary)
+								
+								# remove fullscreen Leopard button
+								@leo_fullscreen_button.removeFromSuperview
+								
+								window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary   
+								NSNotificationCenter.defaultCenter.addObserver( self, 
                                                    selector: 'will_enter_fullscreen:',
                                                    name: NSWindowWillEnterFullScreenNotification,
                                                    object: window)
-      NSNotificationCenter.defaultCenter.addObserver( self, 
+								NSNotificationCenter.defaultCenter.addObserver( self, 
                                                      selector: 'will_exit_fullscreen:',
                                                      name: NSWindowWillExitFullScreenNotification,
                                                      object: window)
     end
+				end
   end
   
   def awakeFromNib
@@ -91,21 +102,101 @@ class AppDelegate
       @last_item = item
     end
   end
-    
-  def will_enter_fullscreen(notification)
-    # about to enter Lion's FS mode, collapsing the channel list panel
+		
+		def collaps_channel
+				# about to enter Lion's FS mode, collapsing the channel list panel
     @channel_panel_old_size = [split_view.subviews[0].frame[0].x, 
-                               split_view.subviews[0].frame[0].y, 
-                               430, #split_view.subviews[0].frame[1].width
-                               split_view.subviews[0].frame[1].height]
+																														 split_view.subviews[0].frame[0].y, 
+																														 430, #split_view.subviews[0].frame[1].width
+																														 split_view.subviews[0].frame[1].height]
     split_view.subviews[0].frame = [0, 0, 0, split_view.subviews[0].frame[1].height]    
+		end
+				
+  def will_enter_fullscreen(notification)
+				collaps_channel
   end
     
   def will_exit_fullscreen(notification)
     # resizing the channel panel
     split_view.subviews[0].frame = @channel_panel_old_size if @channel_panel_old_size
   end
-    
+		
+		# Leopard fullscreen
+		def toggle_fullscreen(sender)
+				@leo_fullscreen_button.setNextState if sender.nil?		
+				@is_fullscreen ?  exit_fullscreen : enter_fullscreen
+		end
+				
+		def enter_fullscreen						
+				@is_fullscreen = true
+				collaps_channel
+
+				mFullscreenScreen = window.screen
+				screenRect = mFullscreenScreen.frame
+				# Create a Window to Cover the screen
+				fullscreenWindow = FullScreenWindow.alloc.initWithContentRect screenRect,
+																																																								styleMask:NSBorderlessWindowMask,
+																																																										backing:NSBackingStoreBuffered,
+																																																												defer:false
+						
+				fullscreenWindow.backgroundColor = NSColor.blackColor
+				# Create Window Controllers for fullscreen window and Control Overlay
+				@mFullscreenWindowController = NSWindowController.alloc.initWithWindow fullscreenWindow
+				@mFullscreenOverlayWindowController = FullScreenOverlayWindowController.alloc.init
+				fullscreenWindow.addChildWindow @mFullscreenOverlayWindowController.window,
+																																																				ordered:NSWindowAbove
+				#				
+				self.repositionOverlayWindow
+						
+				# Move the Content into fullscreen
+				@split_view.removeFromSuperviewWithoutNeedingDisplay
+				fullscreenWindow.contentView.addSubview @split_view
+				@mSavedMovieViewRect = @split_view.frame # remember the current rect/size
+				@split_view.frame = fullscreenWindow.contentView.bounds
+
+				
+				# Bring the fullscreen and overlay windows to the front
+				window.orderOut self
+				@mFullscreenOverlayWindowController.showWindow self
+				@mFullscreenWindowController.showWindow self
+						
+				# Hide the dock and menu bar, saving previous presentation options
+				@mSavedPresentationOptions = NSApp.presentationOptions
+				NSApp.setPresentationOptions (NSApplicationPresentationAutoHideDock | NSApplicationPresentationAutoHideMenuBar)
+		end		
+				
+		def exit_fullscreen
+				@is_fullscreen = false
+				
+				# player view back to the main window
+				@split_view.removeFromSuperviewWithoutNeedingDisplay
+				@split_view.frame = @mSavedMovieViewRect
+				@window.contentView.addSubview @split_view
+				
+				# Get rid of the fullscreen windows
+				@mFullscreenWindowController.close
+				@mFullscreenWindowController = nil
+				@mFullscreenOverlayWindowController.close
+				@mFullscreenOverlayWindowController = nil
+						
+				# Bring the main window back to the front
+				window.makeKeyAndOrderFront self				
+				
+				# Restore previous presentation options
+				NSApp.setPresentationOptions @mSavedPresentationOptions
+				
+				# resizing the channel panel
+    split_view.subviews[0].frame = @channel_panel_old_size if @channel_panel_old_size
+		end
+				
+		def repositionOverlayWindow
+				fullscreenRect = @mFullscreenWindowController.window.frame
+				overlayWindow = @mFullscreenOverlayWindowController.window
+				overlayRect = overlayWindow.frame
+				overlayWindow.setFrameOrigin NSMakePoint(NSMinX(fullscreenRect) + ((0.5 * NSWidth(fullscreenRect)) - (0.5 * NSWidth(overlayRect))), 0.15 * NSHeight(fullscreenRect))
+		end
+
+		
   def windowWillClose(sender); exit(1); end
   
 end
