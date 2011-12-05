@@ -37,8 +37,8 @@
 			</object>
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{1213, 67}, {0, 0}}</string>
-				<int key="NSWTFlags">539497472</int>
+				<string key="NSWindowRect">{{1252, 56}, {2, 2}}</string>
+				<int key="NSWTFlags">544740352</int>
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
@@ -46,9 +46,10 @@
 				<object class="NSView" key="NSWindowView" id="1006">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">4385</int>
-					<string key="NSFrameSize">{0, 0}</string>
+					<string key="NSFrameSize">{2, 2}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
