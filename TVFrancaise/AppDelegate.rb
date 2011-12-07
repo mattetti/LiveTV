@@ -19,7 +19,7 @@ class AppDelegate
     # full screen mode for Lion only
     if Object.const_defined?(:NSWindowCollectionBehaviorFullScreenPrimary)
       # remove fullscreen Leopard button
-      # @leo_fullscreen_button.removeFromSuperview
+      @leo_fullscreen_button.removeFromSuperview
       window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary   
       NSNotificationCenter.defaultCenter.addObserver( self, 
                                             selector: 'will_enter_fullscreen:',
