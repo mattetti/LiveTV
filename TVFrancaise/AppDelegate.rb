@@ -88,7 +88,7 @@ class AppDelegate
     end
   end
 		
-	def movie_load_state_changed a_notification
+  def movie_load_state_changed a_notification
     movie = a_notification.object
     load_state = movie.attributeForKey QTMovieLoadStateAttribute
     if load_state == QTMovieLoadStateError
