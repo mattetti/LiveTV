@@ -16,14 +16,10 @@ class AppDelegate
 
   
   def applicationDidFinishLaunching(a_notification)
-    # find actual Mac OSX Version // we should find a better way
-    sv = NSDictionary.dictionaryWithContentsOfFile "/System/Library/CoreServices/SystemVersion.plist"
-    osx_version_string = sv["ProductVersion"]
-    if osx_version_string.to_f >= "10.9.0".to_f
     # full screen mode for Lion only
     if Object.const_defined?(:NSWindowCollectionBehaviorFullScreenPrimary)
       # remove fullscreen Leopard button
-      @leo_fullscreen_button.removeFromSuperview
+      # @leo_fullscreen_button.removeFromSuperview
       window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary   
       NSNotificationCenter.defaultCenter.addObserver( self, 
                                             selector: 'will_enter_fullscreen:',
@@ -33,15 +29,14 @@ class AppDelegate
                                             selector: 'will_exit_fullscreen:',
                                                 name: NSWindowWillExitFullScreenNotification,
                                               object: window)
-      end
     end
   end
   
   def awakeFromNib
     @spinner.displayedWhenStopped = false
     @player.hidden = true
-				channel_plist_path = NSBundle.mainBundle.pathForResource "channelList", ofType:"plist"
-				@data = NSArray.arrayWithContentsOfFile channel_plist_path
+		channel_plist_path = NSBundle.mainBundle.pathForResource "channelList", ofType:"plist"
+		@data = NSArray.arrayWithContentsOfFile channel_plist_path
     outline.expandItem(@data[0])
     # Starting channel
     stream_channel("NRJ Pure")
@@ -100,18 +95,14 @@ class AppDelegate
       @last_item = item
     end
   end
-		
-  def collaps_channel
+						
+  def will_enter_fullscreen(notification)
     # about to enter Lion's FS mode, collapsing the channel list panel
     @channel_panel_old_size = [split_view.subviews[0].frame[0].x, 
-                               split_view.subviews[0].frame[0].y, 
-                               430, #split_view.subviews[0].frame[1].width
-                               split_view.subviews[0].frame[1].height]
+		                          split_view.subviews[0].frame[0].y, 
+				                      330, #split_view.subviews[0].frame[1].width
+				                      split_view.subviews[0].frame[1].height]
     split_view.subviews[0].frame = [0, 0, 0, split_view.subviews[0].frame[1].height]    
-  end
-				
-  def will_enter_fullscreen(notification)
-    collaps_channel
   end
     
   def will_exit_fullscreen(notification)
@@ -125,9 +116,9 @@ class AppDelegate
     @is_fullscreen ?  exit_fullscreen : enter_fullscreen
   end
 				
-  def enter_fullscreen						
+  def enter_fullscreen
+    will_enter_fullscreen(nil)					
     @is_fullscreen = true
-    collaps_channel
 
     mFullscreenScreen = window.screen
     screenRect = mFullscreenScreen.frame
@@ -163,6 +154,7 @@ class AppDelegate
   end		
 				
   def exit_fullscreen
+    will_exit_fullscreen(nil)
     @is_fullscreen = false
     
     # player view back to the main window
@@ -193,7 +185,6 @@ class AppDelegate
     overlayWindow.setFrameOrigin NSMakePoint(NSMinX(fullscreenRect) + ((0.5 * NSWidth(fullscreenRect)) - (0.5 * NSWidth(overlayRect))), 0.15 * NSHeight(fullscreenRect))
   end
 
-		
   def windowWillClose(sender); exit(1); end
   
 end

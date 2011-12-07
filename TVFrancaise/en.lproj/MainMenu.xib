@@ -1360,7 +1360,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSScrollView" id="672212451">
 											<reference key="NSNextResponder" ref="1012908832"/>
-											<int key="NSvFlags">274</int>
+											<int key="NSvFlags">4370</int>
 											<object class="NSMutableArray" key="NSSubviews">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSClipView" id="487449192">
@@ -1370,7 +1370,7 @@
 														<bool key="EncodedWithXMLCoder">YES</bool>
 														<object class="NSOutlineView" id="761096091">
 															<reference key="NSNextResponder" ref="487449192"/>
-															<int key="NSvFlags">256</int>
+															<int key="NSvFlags">4352</int>
 															<string key="NSFrameSize">{133, 431}</string>
 															<reference key="NSSuperview" ref="487449192"/>
 															<reference key="NSWindow"/>
@@ -1415,7 +1415,7 @@
 																	</object>
 																	<object class="NSTextFieldCell" key="NSDataCell" id="300595475">
 																		<int key="NSCellFlags">67239488</int>
-																		<int key="NSCellFlags2">2048</int>
+																		<int key="NSCellFlags2">33556480</int>
 																		<string key="NSContents">Text Cell</string>
 																		<object class="NSFont" key="NSSupport">
 																			<string key="NSName">LucidaGrande</string>
@@ -1493,7 +1493,7 @@
 												</object>
 												<object class="NSScroller" id="272436597">
 													<reference key="NSNextResponder" ref="672212451"/>
-													<int key="NSvFlags">-2147483392</int>
+													<int key="NSvFlags">-2147479296</int>
 													<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 													<reference key="NSSuperview" ref="672212451"/>
 													<reference key="NSWindow"/>
@@ -1505,7 +1505,7 @@
 												</object>
 												<object class="NSScroller" id="460093998">
 													<reference key="NSNextResponder" ref="672212451"/>
-													<int key="NSvFlags">-2147483392</int>
+													<int key="NSvFlags">-2147479296</int>
 													<string key="NSFrame">{{1, 354.34593451023102}, {138.61792278289795, 15}}</string>
 													<reference key="NSSuperview" ref="672212451"/>
 													<reference key="NSWindow"/>
@@ -3956,6 +3956,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>is_fullscreen</string>
 							<string>leo_fullscreen_button</string>
 							<string>outline</string>
 							<string>player</string>
@@ -3965,6 +3966,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -3977,6 +3979,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>is_fullscreen</string>
 							<string>leo_fullscreen_button</string>
 							<string>outline</string>
 							<string>player</string>
@@ -3986,6 +3989,10 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">is_fullscreen</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">leo_fullscreen_button</string>
 								<string key="candidateClassName">id</string>
