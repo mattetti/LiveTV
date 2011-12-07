@@ -80,22 +80,30 @@ class AppDelegate
       # puts "Changing channel"
       error = Pointer.new("@")
       movie = QTMovie.movieWithAttributes({QTMovieOpenForPlaybackAttribute => true, QTMovieURLAttribute => url}, error)
-      @loading_check_thread.exit if @loading_check_thread
-      @loading_check_thread = Thread.new do
-        @player.hidden = true unless @player.movie
-        while(movie.attributeForKey(QTMovieLoadStateAttribute) == QTMovieLoadStateLoading) do
-          # puts "loading..."
-          sleep(0.5) 
-        end
-        movie.autoplay
-        @player.hidden = false
-        @spinner.stopAnimation(nil)
-        @player.setMovie(movie)
-      end
+      NSNotificationCenter.defaultCenter.addObserver( self, 
+                                            selector: 'movie_load_state_changed:', 
+                                                name: QTMovieLoadStateDidChangeNotification, 
+                                              object: movie)
       @last_item = item
     end
   end
-						
+		
+	def movie_load_state_changed a_notification
+    movie = a_notification.object
+    load_state = movie.attributeForKey QTMovieLoadStateAttribute
+    if load_state == QTMovieLoadStateError
+      error = movie.attributeForKey QTMovieLoadStateErrorAttribute
+      NSLog("Error: #{error}")
+    end 
+    if load_state >= QTMovieLoadStateLoaded
+      @player.hidden = true unless @player.movie
+      movie.autoplay
+      @player.hidden = false
+      @spinner.stopAnimation(nil)
+      @player.setMovie(movie)
+    end
+  end	
+				
   def will_enter_fullscreen(notification)
     # about to enter Lion's FS mode, collapsing the channel list panel
     @channel_panel_old_size = [split_view.subviews[0].frame[0].x, 
