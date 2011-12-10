@@ -1,7 +1,7 @@
 # LiveTV
 
 Simple OS X application allowing you to watch some live free TV
-channels (French, English, Italian).
+channels (French, English, Italian) fullscreen on your mac.
 
 This product is buggy, mainly for educational purposes and certainly not
 maintained. Use it at your own risks.
@@ -44,8 +44,8 @@ about the following Cocoa classes:
 
 ## TODO list
 
-* Full screen mode (currently Lion only)
-* Look into the GC error with unregistered thread. (thread started manually when the channel is changed)
+* Fullscreen mode √ (mateus for Snow Leopard and mattetti for Lion)
+* Look into the GC error with unregistered thread. √ (mateus)
 * Move the channel buffering indicator to the watched channel or bottom right of the screen.
 * keyboard shortcuts
 * Apple remote control support
@@ -64,6 +64,8 @@ about the following Cocoa classes:
 ## Thanks
 
 Thanks to 
-* Patrick Crowley for the current icon, hopefully, we'll come up
+* Patrick Crowley (@mokolabs) for the current icon, hopefully, we'll come up
 with something better ;)
-* Amr Numan Tamimi amrnt for contributing new channels.
+* Amr Numan Tamimi (@amrnt) for contributing new channels.
+* Mateus (@seanlilmateus) for the SnowLeopard fullscreen mode, thread
+  bug fix and the extraction of the channels into a plist.
