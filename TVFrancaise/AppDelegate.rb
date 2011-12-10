@@ -12,14 +12,14 @@ class AppDelegate
   attr_accessor :player
   attr_accessor :spinner
   attr_accessor :split_view
-		attr_accessor :leo_fullscreen_button, :is_fullscreen
+  attr_accessor :leo_fullscreen_button, :is_fullscreen
 
   
   def applicationDidFinishLaunching(a_notification)
     # full screen mode for Lion only
     if Object.const_defined?(:NSWindowCollectionBehaviorFullScreenPrimary)
       # remove fullscreen Leopard button
-      @leo_fullscreen_button.removeFromSuperview
+      leo_fullscreen_button.removeFromSuperview
       window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary   
       NSNotificationCenter.defaultCenter.addObserver( self, 
                                             selector: 'will_enter_fullscreen:',
@@ -33,8 +33,8 @@ class AppDelegate
   end
   
   def awakeFromNib
-    @spinner.displayedWhenStopped = false
-    @player.hidden = true
+    spinner.displayedWhenStopped = false
+    player.hidden = true
 		channel_plist_path = NSBundle.mainBundle.pathForResource "channelList", ofType:"plist"
 		@data = NSArray.arrayWithContentsOfFile channel_plist_path
     outline.expandItem(@data[0])
@@ -49,8 +49,11 @@ class AppDelegate
   end
   
   def outlineView(outlineView, numberOfChildrenOfItem:item)
-    return @data.size if item.nil?
-    return item[:child].size
+    if item.nil?
+      @data.size
+    else
+      item[:child].size
+    end
   end
   
   def outlineView(outlineView, isItemExpandable:item)
@@ -64,12 +67,12 @@ class AppDelegate
   def outlineView(outlineView, shouldSelectItem:item)
     return false if item.kind_of?(Hash)
     stream_channel(item)
-    return true
+    true
   end
 
   def stream_channel(item)
     unless @last_item == item
-      @spinner.startAnimation(nil)
+      spinner.startAnimation(nil)
       channel = @data.each do |cat| 
         match = cat[:child].detect{|(name, url)| name.keys.first == item}
         break match if match
@@ -93,14 +96,14 @@ class AppDelegate
     load_state = movie.attributeForKey QTMovieLoadStateAttribute
     if load_state == QTMovieLoadStateError
       error = movie.attributeForKey QTMovieLoadStateErrorAttribute
-      NSLog("Error: #{error}")
+      puts "Error: #{error[0]}"
     end 
     if load_state >= QTMovieLoadStateLoaded
-      @player.hidden = true unless @player.movie
+      player.hidden = true unless @player.movie
       movie.autoplay
-      @player.hidden = false
-      @spinner.stopAnimation(nil)
-      @player.setMovie(movie)
+      player.hidden = false
+      spinner.stopAnimation(nil)
+      player.movie = movie
     end
   end	
 				
@@ -120,8 +123,8 @@ class AppDelegate
 		
   # Leopard fullscreen
   def toggle_fullscreen(sender)
-    @leo_fullscreen_button.setNextState if sender.nil?		
-    @is_fullscreen ?  exit_fullscreen : enter_fullscreen
+    leo_fullscreen_button.setNextState if sender.nil?		
+    is_fullscreen ?  exit_fullscreen : enter_fullscreen
   end
 				
   def enter_fullscreen
@@ -133,31 +136,31 @@ class AppDelegate
     # Create a Window to Cover the screen
     fullscreenWindow = FullScreenWindow.alloc.initWithContentRect screenRect,
                                                       styleMask:NSBorderlessWindowMask,
-                                                        backing:NSBackingStoreBuffered,
-                                                          defer:false
+                                                      backing:NSBackingStoreBuffered,
+                                                      defer:false
 						
     fullscreenWindow.backgroundColor = NSColor.blackColor
     # Create Window Controllers for fullscreen window and Control Overlay
-    @mFullscreenWindowController = NSWindowController.alloc.initWithWindow fullscreenWindow
-    @mFullscreenOverlayWindowController = FullScreenOverlayWindowController.alloc.init
-    fullscreenWindow.addChildWindow @mFullscreenOverlayWindowController.window, ordered:NSWindowAbove
+    @fullscreen_window_controller = NSWindowController.alloc.initWithWindow(fullscreenWindow)
+    @fullscreen_overlay_window_controller = FullScreenOverlayWindowController.alloc.init
+    fullscreenWindow.addChildWindow(@fullscreen_overlay_window_controller.window, ordered:NSWindowAbove)
 
     self.repositionOverlayWindow
 						
     # Move the Content into fullscreen
-    @split_view.removeFromSuperviewWithoutNeedingDisplay
-    fullscreenWindow.contentView.addSubview @split_view
-    @mSavedMovieViewRect = @split_view.frame # remember the current rect/size
-    @split_view.frame = fullscreenWindow.contentView.bounds
+    split_view.removeFromSuperviewWithoutNeedingDisplay
+    fullscreenWindow.contentView.addSubview(split_view)
+    @mSavedMovieViewRect = split_view.frame # remember the current rect/size
+    split_view.frame = fullscreenWindow.contentView.bounds
 
 				
     # Bring the fullscreen and overlay windows to the front
     window.orderOut self
-    @mFullscreenOverlayWindowController.showWindow self
-    @mFullscreenWindowController.showWindow self
+    @fullscreen_overlay_window_controller.showWindow self
+    @fullscreen_window_controller.showWindow self
 						
     # Hide the dock and menu bar, saving previous presentation options
-    @mSavedPresentationOptions = NSApp.presentationOptions
+    @saved_presentation_options = NSApp.presentationOptions
     NSApp.setPresentationOptions (NSApplicationPresentationAutoHideDock | NSApplicationPresentationAutoHideMenuBar)
   end		
 				
@@ -166,29 +169,29 @@ class AppDelegate
     @is_fullscreen = false
     
     # player view back to the main window
-    @split_view.removeFromSuperviewWithoutNeedingDisplay
-    @split_view.frame = @mSavedMovieViewRect
-    @window.contentView.addSubview @split_view
+    split_view.removeFromSuperviewWithoutNeedingDisplay
+    split_view.frame = @mSavedMovieViewRect
+    window.contentView.addSubview @split_view
     
     # Get rid of the fullscreen windows
-    @mFullscreenWindowController.close
-    @mFullscreenWindowController = nil
-    @mFullscreenOverlayWindowController.close
-    @mFullscreenOverlayWindowController = nil
+    @fullscreen_window_controller.close
+    @fullscreen_window_controller = nil
+    @fullscreen_overlay_window_controller.close
+    @fullscreen_overlay_window_controller = nil
     		
     # Bring the main window back to the front
-    window.makeKeyAndOrderFront self				
+    window.makeKeyAndOrderFront(self)				
     
     # Restore previous presentation options
-    NSApp.setPresentationOptions @mSavedPresentationOptions
+    NSApp.presentationOptions = @saved_presentation_options
     
     # resizing the channel panel
     split_view.subviews[0].frame = @channel_panel_old_size if @channel_panel_old_size
   end
 				
   def repositionOverlayWindow
-    fullscreenRect = @mFullscreenWindowController.window.frame
-    overlayWindow = @mFullscreenOverlayWindowController.window
+    fullscreenRect = @fullscreen_window_controller.window.frame
+    overlayWindow = @fullscreen_overlay_window_controller.window
     overlayRect = overlayWindow.frame
     overlayWindow.setFrameOrigin NSMakePoint(NSMinX(fullscreenRect) + ((0.5 * NSWidth(fullscreenRect)) - (0.5 * NSWidth(overlayRect))), 0.15 * NSHeight(fullscreenRect))
   end

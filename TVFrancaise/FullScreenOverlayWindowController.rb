@@ -7,17 +7,17 @@
 #
 
 class FullScreenOverlayWindowController < NSWindowController
-		def init
-				self.initWithWindowNibName "FullScreenOverlayWindow"
-		end
-		
-		def windowDidLoad
-				super
-				window = self.window
-				window.setStyleMask NSBorderlessWindowMask
-				window.setAlphaValue 1.0
-				window.setMovableByWindowBackground true  	
-		end
+  def init
+    self.initWithWindowNibName "FullScreenOverlayWindow"
+  end
+
+  def windowDidLoad
+    super
+    window = self.window
+    window.styleMask = NSBorderlessWindowMask
+    window.alphaValue = 1.0
+    window.movableByWindowBackground = true  	
+  end
 end
 
 
