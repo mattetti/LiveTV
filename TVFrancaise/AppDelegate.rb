@@ -14,8 +14,9 @@ class AppDelegate
   attr_accessor :split_view
   attr_accessor :leo_fullscreen_button, :is_fullscreen
 
+  LAST_CHANNEL_KEY = "org.mattetti.livetv-lastchannel"
   
-  def applicationDidFinishLaunching(a_notification)
+  def applicationDidFinishLaunching(notification)
     # full screen mode for Lion only
     if Object.const_defined?(:NSWindowCollectionBehaviorFullScreenPrimary)
       # remove fullscreen Leopard button
@@ -39,7 +40,10 @@ class AppDelegate
 		@data = NSArray.arrayWithContentsOfFile channel_plist_path
     outline.expandItem(@data[0])
     # Starting channel
-    stream_channel("NRJ Pure")
+    defaults = NSUserDefaults.standardUserDefaults
+    last_channel = defaults.objectForKey(LAST_CHANNEL_KEY)
+    puts last_channel.inspect
+    stream_channel(last_channel || "NRJ Pure")
   end
   
   def outlineView(outlineView, child: index, ofItem: item)
@@ -78,6 +82,7 @@ class AppDelegate
         break match if match
       end
       return unless channel && channel.respond_to?(:values)
+      @selected_channel = channel.keys.first
       value = channel.values.first
       url = NSURL.URLWithString(value)
       # puts "Changing channel"
@@ -195,8 +200,18 @@ class AppDelegate
     overlayRect = overlayWindow.frame
     overlayWindow.setFrameOrigin NSMakePoint(NSMinX(fullscreenRect) + ((0.5 * NSWidth(fullscreenRect)) - (0.5 * NSWidth(overlayRect))), 0.15 * NSHeight(fullscreenRect))
   end
+  
+  def save_last_channel
+    defaults = NSUserDefaults.standardUserDefaults
+    defaults.setObject(@selected_channel, forKey: LAST_CHANNEL_KEY)
+    defaults.synchronize
+  end
 
-  def windowWillClose(sender); exit(1); end
+  def windowWillClose(sender); save_last_channel; exit(1); end
+  
+  def applicationWillTerminate(notification)
+    save_last_channel
+  end
   
 end
 
