@@ -258,5 +258,9 @@ class AppDelegate
     save_last_channel
   end
   
+	# NSSplitterView delegate method => size configuration
+	def splitView splitView, constrainMaxCoordinate:proposed_max, ofSubviewAt:divider_index
+		300.0
+	end
 end
 
