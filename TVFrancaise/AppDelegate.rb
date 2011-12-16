@@ -46,34 +46,51 @@ class AppDelegate
     stream_channel(last_channel || "NRJ Pure")
   end
   
-  def outlineView(outlineView, child: index, ofItem: item)
+	def sourceList source_list, shouldSelectItem:item		
+		return false if item.kind_of?(Hash)
+		true
+	end
+	
+	def sourceList source_list, numberOfChildrenOfItem:item
+    item.nil? ? @data.size  : item[:child].count
+	end
+	
+	def sourceList source_list, child:index, ofItem:item
     return nil if @data.nil?
     return @data[index] if item.nil?
     return item[:child][index].keys.first
-  end
-  
-  def outlineView(outlineView, numberOfChildrenOfItem:item)
-    if item.nil?
-      @data.size
-    else
-      item[:child].size
-    end
-  end
-  
-  def outlineView(outlineView, isItemExpandable:item)
-    item.kind_of?(Hash)
-  end
-  
-  def outlineView(outlineView, objectValueForTableColumn:tableColumn, byItem:item)
-    item.kind_of?(Hash) ? item[:group] : item
-  end
-
-  def outlineView(outlineView, shouldSelectItem:item)
-    return false if item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, objectValueForItem:item
+		item.kind_of?(Hash) ? item[:group] : item
+	end
+	
+	def sourceList source_list, selectionIndexesForProposedSelection:selected_indexes
+		item = outline.itemAtRow(selected_indexes.firstIndex)
     stream_channel(item)
-    true
-  end
-
+		selected_indexes
+	end
+	
+	def sourceList source_list, isItemExpandable:item
+		item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, itemHasBadge:item
+		item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, badgeValueForItem:item
+		item[:child].count
+	end
+	
+	def sourceList source_list, itemHasIcon:item
+		!item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, iconForItem:item
+		NSImage.imageNamed "NSSlideshowTemplate"
+	end
+	
   def stream_channel(item)
     unless @last_item == item
       spinner.startAnimation(nil)

@@ -1,0 +1,101 @@
+<?xml version='1.0'?>
+<!DOCTYPE signatures SYSTEM "file://localhost/System/Library/DTDs/BridgeSupport.dtd">
+<signatures version='1.0'>
+<depends_on path='/System/Library/Frameworks/Foundation.framework'/>
+<depends_on path='/System/Library/Frameworks/AppKit.framework'/>
+<depends_on path='/System/Library/Frameworks/CoreFoundation.framework'/>
+<constant name='PXSLDeleteKeyPressedOnRowsNotification' type='@'/>
+<constant name='PXSLItemDidCollapseNotification' type='@'/>
+<constant name='PXSLItemDidExpandNotification' type='@'/>
+<constant name='PXSLItemWillCollapseNotification' type='@'/>
+<constant name='PXSLItemWillExpandNotification' type='@'/>
+<constant name='PXSLSelectionDidChangeNotification' type='@'/>
+<constant name='PXSLSelectionIsChangingNotification' type='@'/>
+<class name='NSObject'>
+<method selector='sourceList:acceptDrop:item:childIndex:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:isGroupAlwaysExpanded:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:isItemExpandable:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:itemHasBadge:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:itemHasIcon:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:shouldCollapseItem:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:shouldEditItem:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:shouldExpandItem:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:shouldSelectItem:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:shouldTrackCell:forItem:'>
+<retval type='B'/>
+</method>
+<method selector='sourceList:writeItems:toPasteboard:'>
+<retval type='B'/>
+</method>
+</class>
+<class name='PXSourceList'>
+<method selector='isGroupAlwaysExpanded:'>
+<retval type='B'/>
+</method>
+<method selector='isGroupItem:'>
+<retval type='B'/>
+</method>
+<method selector='itemHasBadge:'>
+<retval type='B'/>
+</method>
+</class>
+<informal_protocol name='PXSourceListDataSource'>
+<method type64='B48@0:8@16@24@32q40' type='B24@0:4@8@12@16i20' selector='sourceList:acceptDrop:item:childIndex:'/>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:badgeBackgroundColorForItem:'/>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:badgeTextColorForItem:'/>
+<method type64='q32@0:8@16@24' type='i16@0:4@8@12' selector='sourceList:badgeValueForItem:'/>
+<method type64='@40@0:8@16Q24@32' type='@20@0:4@8I12@16' selector='sourceList:child:ofItem:'/>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:iconForItem:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:isItemExpandable:'/>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:itemForPersistentObject:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:itemHasBadge:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:itemHasIcon:'/>
+<method type64='@40@0:8@16@24@32' type='@20@0:4@8@12@16' selector='sourceList:namesOfPromisedFilesDroppedAtDestination:forDraggedItems:'/>
+<method type64='Q32@0:8@16@24' type='I16@0:4@8@12' selector='sourceList:numberOfChildrenOfItem:'/>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:objectValueForItem:'/>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:persistentObjectForItem:'/>
+<method type64='v40@0:8@16@24@32' type='v20@0:4@8@12@16' selector='sourceList:setObjectValue:forItem:'/>
+<method type64='Q48@0:8@16@24@32q40' type='I24@0:4@8@12@16i20' selector='sourceList:validateDrop:proposedItem:proposedChildIndex:'/>
+<method type64='B40@0:8@16@24@32' type='B20@0:4@8@12@16' selector='sourceList:writeItems:toPasteboard:'/>
+</informal_protocol>
+<informal_protocol name='PXSourceListDelegate'>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:dataCellForItem:'/>
+<method type64='d32@0:8@16@24' type='f16@0:4@8@12' selector='sourceList:heightOfRowByItem:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:isGroupAlwaysExpanded:'/>
+<method type64='@40@0:8@16@24@32' type='@20@0:4@8@12@16' selector='sourceList:menuForEvent:item:'/>
+<method type64='@32@0:8@16@24' type='@16@0:4@8@12' selector='sourceList:selectionIndexesForProposedSelection:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:shouldCollapseItem:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:shouldEditItem:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:shouldExpandItem:'/>
+<method type64='B32@0:8@16@24' type='B16@0:4@8@12' selector='sourceList:shouldSelectItem:'/>
+<method type64='B40@0:8@16@24@32' type='B20@0:4@8@12@16' selector='sourceList:shouldTrackCell:forItem:'/>
+<method type64='@40@0:8@16@24@32' type='@20@0:4@8@12@16' selector='sourceList:willDisplayCell:forItem:'/>
+</informal_protocol>
+<informal_protocol name='PXSourceListNotifications'>
+<method type64='v24@0:8@16' type='v12@0:4@8' selector='sourceListDeleteKeyPressedOnRows:'/>
+<method type64='v24@0:8@16' type='v12@0:4@8' selector='sourceListItemDidCollapse:'/>
+<method type64='v24@0:8@16' type='v12@0:4@8' selector='sourceListItemDidExpand:'/>
+<method type64='v24@0:8@16' type='v12@0:4@8' selector='sourceListItemWillCollapse:'/>
+<method type64='v24@0:8@16' type='v12@0:4@8' selector='sourceListItemWillExpand:'/>
+<method type64='v24@0:8@16' type='v12@0:4@8' selector='sourceListSelectionDidChange:'/>
+<method type64='v24@0:8@16' type='v12@0:4@8' selector='sourceListSelectionIsChanging:'/>
+</informal_protocol>
+</signatures>
