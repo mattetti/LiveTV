@@ -10,7 +10,6 @@ class AppDelegate
   attr_accessor :window
   attr_accessor :outline
   attr_accessor :player
-  attr_accessor :spinner
   attr_accessor :split_view
   attr_accessor :leo_fullscreen_button, :is_fullscreen
 
@@ -34,7 +33,6 @@ class AppDelegate
   end
   
   def awakeFromNib
-    spinner.displayedWhenStopped = false
     player.hidden = true
 		channel_plist_path = NSBundle.mainBundle.pathForResource "channelList", ofType:"plist"
 		@data = NSArray.arrayWithContentsOfFile channel_plist_path
@@ -46,37 +44,84 @@ class AppDelegate
     stream_channel(last_channel || "NRJ Pure")
   end
   
-  def outlineView(outlineView, child: index, ofItem: item)
+	def sourceList source_list, shouldSelectItem:item		
+		return false if item.kind_of?(Hash)
+		true
+	end
+	
+	def sourceList source_list, numberOfChildrenOfItem:item
+    item.nil? ? @data.size  : item[:child].count
+	end
+	
+	def sourceList source_list, child:index, ofItem:item
     return nil if @data.nil?
     return @data[index] if item.nil?
     return item[:child][index].keys.first
-  end
-  
-  def outlineView(outlineView, numberOfChildrenOfItem:item)
-    if item.nil?
-      @data.size
-    else
-      item[:child].size
-    end
-  end
-  
-  def outlineView(outlineView, isItemExpandable:item)
-    item.kind_of?(Hash)
-  end
-  
-  def outlineView(outlineView, objectValueForTableColumn:tableColumn, byItem:item)
-    item.kind_of?(Hash) ? item[:group] : item
-  end
-
-  def outlineView(outlineView, shouldSelectItem:item)
-    return false if item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, objectValueForItem:item
+		item.kind_of?(Hash) ? item[:group] : item
+	end
+	
+	def sourceList source_list, selectionIndexesForProposedSelection:selected_indexes
+		item = outline.itemAtRow(selected_indexes.firstIndex)
     stream_channel(item)
-    true
-  end
+		selected_indexes
+	end
+	
+	def sourceList source_list, isItemExpandable:item
+		item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, itemHasBadge:item
+		item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, badgeValueForItem:item
+		item[:child].count
+	end
+	
+	def sourceList source_list, itemHasIcon:item
+		!item.kind_of?(Hash)
+	end
+	
+	def sourceList source_list, iconForItem:item
+		NSImage.imageNamed "NSSlideshowTemplate"
+	end
+	
+	# selection changed
+	def sourceListSelectionDidChange notification
+		@remove_progress[] if @remove_progress
+		selected_indexes = outline.selectedRowIndexes
+		if(selected_indexes.count > 1)
+			# NSLog("multiple selected")
+		elsif(selected_indexes.count == 1)
+			row = selected_indexes.firstIndex
+			identifier = outline.itemAtRow(row)
+			view = selected_row_spinner(row)
+			outline.addSubview view
+			@remove_progress =-> {view.stopAnimation nil; view.removeFromSuperview}
+		else
+			# NSLog("none selected")
+		end
+	end
 
+	def selected_row_spinner row
+		cell_frame =  outline.frameOfCellAtColumn(0, row:row)
+		cell_frame.origin.x -= 40
+		indicator = NSProgressIndicator.alloc.initWithFrame(cell_frame)
+		indicator.indeterminate = true
+		indicator.style = NSProgressIndicatorSpinningStyle
+		indicator.controlSize = NSSmallControlSize
+		indicator.usesThreadedAnimation = true
+		indicator.displayedWhenStopped = false
+		indicator.sizeToFit
+		indicator.startAnimation nil
+		indicator
+	end
+	
   def stream_channel(item)
     unless @last_item == item
-      spinner.startAnimation(nil)
       channel = @data.each do |cat| 
         match = cat[:child].detect{|(name, url)| name.keys.first == item}
         break match if match
@@ -101,13 +146,13 @@ class AppDelegate
     load_state = movie.attributeForKey QTMovieLoadStateAttribute
     if load_state == QTMovieLoadStateError
       error = movie.attributeForKey QTMovieLoadStateErrorAttribute
-      puts "Error: #{error[0]}"
+      NSLog("Error: #{error.localizedDescription}")
     end 
     if load_state >= QTMovieLoadStateLoaded
       player.hidden = true unless @player.movie
       movie.autoplay
       player.hidden = false
-      spinner.stopAnimation(nil)
+			@remove_progress[] if @remove_progress
       player.movie = movie
     end
   end	
@@ -213,5 +258,9 @@ class AppDelegate
     save_last_channel
   end
   
+	# NSSplitterView delegate method => size configuration
+	def splitView splitView, constrainMaxCoordinate:proposed_max, ofSubviewAt:divider_index
+		300.0
+	end
 end
 
