@@ -1,5 +1,9 @@
 # LiveTV
 
+NOTE: Unfortunately, most of the French FTA channels decided to add an auth system to avoid direct usage. 
+This means that most of the channels are now broken. My goal has never been to hack into the online broadcast systems so
+I won't be implementing a workaround for the channels requiring auth.
+
 Simple OS X application allowing you to watch some live free TV
 channels (French, English, Italian) fullscreen on your mac.
 
